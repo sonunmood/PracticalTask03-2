@@ -77,9 +77,11 @@ class MenuTableViewCell: UITableViewCell {
         }
         
         pizzaImage.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(-60)
-            make.top.equalToSuperview().offset(-60)
-            make.height.width.equalTo(220)
+            make.leading.equalToSuperview().offset(-100)
+            make.bottom.equalToSuperview().offset(0)
+            make.height.equalTo(216)
+            make.width.equalTo(280)
+            
         }
         
         timeImage.snp.makeConstraints { make in
@@ -93,7 +95,7 @@ class MenuTableViewCell: UITableViewCell {
         }
         
         priceLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-16)
+            make.top.equalTo(timeLabel.snp.bottom).offset(20)
             make.leading.equalTo(pizzaNameLabel)
         }
         
@@ -108,6 +110,5 @@ class MenuTableViewCell: UITableViewCell {
         pizzaImage.image = UIImage(named:model.pizzaImage)
         priceLabel.text = model.price
         timeLabel.text = model.time
-        
     }
 }

@@ -51,13 +51,21 @@ class DetailViewController: UIViewController {
     private let addToCardButton: UIButton = {
         let addToCardButton = UIButton()
         addToCardButton.setTitle("Add to card", for: .normal)
+        addToCardButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         addToCardButton.backgroundColor = UIColor(named: "yellow")
         addToCardButton.layer.cornerRadius = 8
         return addToCardButton
     }()
     
+    private let view1: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 8
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.gray.cgColor
+        return view
+    }()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,12 +95,14 @@ class DetailViewController: UIViewController {
         
         addToCardButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-24)
-            make.bottom.equalToSuperview().offset(-24)
+            make.bottom.equalToSuperview().offset(-100)
+            make.width.equalTo(180)
+            make.height.equalTo(60)
         }
         
         priceLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(24)
-            make.bottom.equalToSuperview().offset(-36)
+            make.bottom.equalToSuperview().offset(-100)
         }
         
     }

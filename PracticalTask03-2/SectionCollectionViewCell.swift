@@ -14,7 +14,13 @@ class SectionCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let backView = UIView()
+    private let backView: UIView = {
+        let bgView = UIView()
+        bgView.layer.borderWidth = 1
+        bgView.layer.borderColor = UIColor.gray.cgColor
+        bgView.layer.cornerRadius = 8
+        return bgView
+    }()
     
     func initCell(data: CollectionViewData) {
         label.text = data.sectionName
@@ -26,8 +32,9 @@ class SectionCollectionViewCell: UICollectionViewCell {
         backView.addSubview(label)
         
         backView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
-            make.height.equalTo(32)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(36)
+            make.width.equalTo(80)
         }
         
         label.snp.makeConstraints { make in

@@ -18,28 +18,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let homeVC = MainViewController()
-        let homeTAbBAtItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
-        homeVC.tabBarItem = homeTAbBAtItem
+        let homeTabBatItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        homeVC.tabBarItem = homeTabBatItem
         
         let navigationController = UINavigationController(rootViewController: homeVC)
         
         
         let favoriteVC = FavoriteViewController()
-        let favoriteTAbBAtItem = UITabBarItem(title: "Favorite", image: UIImage(systemName: "suit.heart.fill"), tag: 0)
-        favoriteVC.tabBarItem = favoriteTAbBAtItem
+        let favoriteTabBatItem = UITabBarItem(title: "Favorite", image: UIImage(systemName: "suit.heart.fill"), tag: 0)
+        favoriteVC.tabBarItem = favoriteTabBatItem
         
         let cartVC = CartViewController()
-        let cartTAbBAtItem = UITabBarItem(title: "Carts", image: UIImage(systemName: "note.text"), tag: 0)
-        cartVC.tabBarItem = cartTAbBAtItem
+        let cartTAbBatItem = UITabBarItem(title: "Carts", image: UIImage(systemName: "note.text"), tag: 0)
+        cartVC.tabBarItem = cartTAbBatItem
         
         let orderVC = OrderViewController()
-        let orderTAbBAtItem = UITabBarItem(title: "My orders", image: UIImage(systemName: "cloud"), tag: 0)
-        orderVC.tabBarItem = orderTAbBAtItem
+        let orderTAbBatItem = UITabBarItem(title: "My orders", image: UIImage(systemName: "cloud"), tag: 0)
+        orderVC.tabBarItem = orderTAbBatItem
         
-        let tabBArCotroller = UITabBarController()
-        tabBArCotroller.viewControllers = [navigationController,favoriteVC,cartVC,orderVC]
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [navigationController,favoriteVC,cartVC,orderVC]
+        tabBarController.tabBar.backgroundColor = .white
         
-        window.rootViewController = tabBArCotroller
+        window.rootViewController = tabBarController
         
         self.window = window
         self.window?.makeKeyAndVisible()

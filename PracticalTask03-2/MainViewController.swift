@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  PracticalTask03-2
-//
-//  Created by Sonun on 2/4/23.
-//
-
 import UIKit
 import SnapKit
 
@@ -54,13 +47,13 @@ class MainViewController: UIViewController {
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        layout.itemSize = CGSize(width: 20.0, height: 40.0)
+        layout.minimumLineSpacing = 8.0
+        layout.minimumInteritemSpacing = 8.0
+        layout.estimatedItemSize = CGSize(width: 80, height: 40)
         layout.scrollDirection = .horizontal
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(SectionCollectionViewCell.self, forCellWithReuseIdentifier: "SectionCollectionViewCell")
-        cv.backgroundColor = .yellow
         return cv
     }()
     
@@ -140,7 +133,7 @@ class MainViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.top.equalTo(collectionView.snp.bottom).offset(56)
-            make.bottom.equalToSuperview().offset(-120)
+            make.bottom.equalToSuperview().offset(0)
         }
     }
 }
@@ -164,10 +157,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         tableViewData.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        200
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
         let model = tableViewData[indexPath.row]
@@ -181,5 +170,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         vc.navigationItem.title = "Detail"
         let model = tableViewData[indexPath.row]
         vc.initData(model: model)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        180
     }
 }
