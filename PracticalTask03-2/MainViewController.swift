@@ -51,9 +51,13 @@ class MainViewController: UIViewController {
         layout.minimumInteritemSpacing = 8.0
         layout.estimatedItemSize = CGSize(width: 80, height: 40)
         layout.scrollDirection = .horizontal
+       
+
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(SectionCollectionViewCell.self, forCellWithReuseIdentifier: "SectionCollectionViewCell")
+        cv.showsHorizontalScrollIndicator = false
+
         return cv
     }()
     

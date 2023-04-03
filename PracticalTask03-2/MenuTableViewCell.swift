@@ -51,6 +51,7 @@ class MenuTableViewCell: UITableViewCell {
         addButton.setTitleColor(.black, for: .normal)
         addButton.layer.borderWidth = 1
         addButton.layer.cornerRadius = 8
+
         return addButton
     }()
     

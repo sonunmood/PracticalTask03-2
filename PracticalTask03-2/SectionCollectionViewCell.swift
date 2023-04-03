@@ -16,9 +16,10 @@ class SectionCollectionViewCell: UICollectionViewCell {
     
     private let backView: UIView = {
         let bgView = UIView()
-        bgView.layer.borderWidth = 1
-        bgView.layer.borderColor = UIColor.gray.cgColor
+        bgView.backgroundColor = .white
         bgView.layer.cornerRadius = 8
+        bgView.setupShadowForView(6, 0, 7, opacity: 0.2)
+
         return bgView
     }()
     
@@ -34,7 +35,6 @@ class SectionCollectionViewCell: UICollectionViewCell {
         backView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(36)
-            make.width.equalTo(80)
         }
         
         label.snp.makeConstraints { make in
@@ -48,4 +48,16 @@ class SectionCollectionViewCell: UICollectionViewCell {
     }
     
     
+}
+
+extension UIView {
+    ///setup shadow for view
+    func setupShadowForView(_ radius: Int = 12,_ width: Int = 0,_ height: Int = 6, opacity: Float = 0.2){
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = CGSize(width: CGFloat(width), height: CGFloat(height))
+        layer.shadowRadius = CGFloat(radius)
+        layer.shadowOpacity = opacity
+        clipsToBounds = true
+        layer.masksToBounds = false
+    }
 }
